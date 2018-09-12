@@ -99,7 +99,7 @@ console.log(age, obj.city);
 
 //////////////////////////
 // Lecture: Passing functions as arguments
-
+/*
 var years = [1990, 1965, 1937, 2005, 1998];
 
 function arrayCalc(arr, fn) {
@@ -131,16 +131,106 @@ console.log(ages);
 console.log(fullAges);
 console.log(maxHeartRate);
 
+*/
+
+// Lecture: Functions returning functions
+/*
+function interviewQuestions (job)
+{
+    if (job === 'designer')
+    {
+        return function(name)
+        {
+            console.log(name + ', can you please explain what UX design is?');
+        }
+    }
+    else if (job === 'teacher')
+    {
+        return function(name)
+        {
+            console.log('What subject do you teach, ' + name + '?');
+        }
+    }
+    else
+    {
+        return function(name)
+        {
+            console.log('Hello ' + name + ', what do you do?');
+        }
+    }
+}
+
+var teacherQuestion = interviewQuestions('teacher');
+var designerQeustion = interviewQuestions('designer');
+// Roep de variabele aan die de functie aanroept
+teacherQuestion('John');
+designerQeustion('John');
+*/
+
+///////////////////////////////
+// Lecture: immediately invoked function expression
+
+/*
+function game ()
+{
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+}
+game();
+*/
+// In  this way there is no interference and is the data private. It can not be accessed by the outside
+/*
+( function(goodLuck)
+{   var score = Math.random() * 10;
+    console.log(score >= 5 - goodLuck);
+}
+//Here you input the value of goodLuck
+)(5);
+*/
+
+////////////////////////////
+// Lecture: Closures
+/*
+function retirement(retirementAge)
+{
+    return function (yearOfBirth)
+    {   
+        var a = ' years left until retirement';
+        var age = 2018 - yearOfBirth;
+        console.log((retirementAge - age) + a)
+    }
+}
+
+var retirementUS = retirement(66);
+var retirementNL = retirement(67);
+
+retirementUS(1990);
+retirementNL(1960);
+*/
 
 
+function interviewQuestions (job)
+{
+    return function (name)
+    {
+        
+        if (job === 'designer')
+        {  console.log(name + ', can you please explain what UX design is?');
+        }
+        else if (job === 'teacher')
+        {  console.log('What subject do you teach, ' + name + '?');   
+        }
+        else
+        {  console.log('Hello ' + name + ', what do you do?');
+        }
+    }
+}
 
-
-
-
-
-
-
-
+var teacherQuestion = interviewQuestions('teacher');
+var designerQeustion = interviewQuestions('designer');
+// Roep de variabele aan die de functie aanroept
+teacherQuestion('John');
+designerQeustion('John');
 
 
 
