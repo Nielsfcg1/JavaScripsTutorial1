@@ -208,7 +208,7 @@ retirementUS(1990);
 retirementNL(1960);
 */
 
-
+/*
 function interviewQuestions (job)
 {
     return function (name)
@@ -231,14 +231,79 @@ var designerQeustion = interviewQuestions('designer');
 // Roep de variabele aan die de functie aanroept
 teacherQuestion('John');
 designerQeustion('John');
+*/
+
+//////////////////////////////////
+// Lecture: Bind, call and apply
 
 
+var john = {
+    name: 'John',
+    age: 26,
+    job: 'Teacher',
+    presentation: function(style, timeOfDay)
+    {
+        if(style === 'formal')
+        {
+            console.log('Good ' + timeOfDay + ' Ladies and Gentlement! I\'m ' + 
+            this.name + ' I\'m a ' + 
+            this.job + ' and I\'m ' + 
+            this.age + ' Years old.');
+        } 
+        else if(style === 'friendly')
+        {
+            console.log('Hey! What\'s up? I\'m ' +
+            this.name + ' I\'m a ' + 
+            this.job + ' and I\'m ' + 
+            this.age + ' Years old. Have a nice '
+            + timeOfDay);
+        }
+    }
+}
+
+var emily =
+{
+    name: 'Emily',
+    age: 35,
+    job: 'Designer'
+};
+
+john.presentation('formal', 'morning');
+// Met de call functie verander je de 'this' element
+john.presentation.call(emily, 'friendly', 'afternoon');
+// Met de apply functie gebeurt hetzelfde, alleen wordt er een array verwacht
+//john.presentation.apply(emily, ['friendly', 'afternoon']);
+// Met de bind functie maak je een kopie van de functie zoodat deze wordt opgeslagen. Handig voor een functie met preset arguments
+var jonhFriendly = john.presentation.bind(john, 'friendly');
+
+jonhFriendly('morning');
+// Dit noem je carrying. Een functie maken gebaseerd op een andere functie met preset parameters 
 
 
+var years = [1990, 1965, 1937, 2005, 1998];
 
+function arrayCalc(arr, fn) {
+    var arrRes = [];
+    for (var i = 0; i < arr.length; i++){
+        arrRes.push(fn(arr[i]));
+    }
+    return arrRes;
+}
 
+function calculateAge(el) {
+    return 2018 - el;
+}
 
+function isFullAge(limit,el)
+{
+    return el >= limit;
+}
 
+var ages = arrayCalc(years, calculateAge);
+
+var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
+console.log(ages);
+console.log(fullJapan);
 
 
 
