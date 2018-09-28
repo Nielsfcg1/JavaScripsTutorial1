@@ -1,5 +1,5 @@
  // Functiuon Constructor
-/*
+
  var john = {
     name: 'John',
     yearOfBirth: 1990,
@@ -38,9 +38,9 @@ john.calculateAge();
 jane.calculateAge();
 mark.calculateAge();
 
-Console.log(john.lastName);
+console.log(john.lastName);
 
-*/
+
 
 
 // Object.create
@@ -350,6 +350,7 @@ var test = question(0,0,0);
 console.log(test);
 */
 // Constructor
+/*
 function Question (question, answers, correct)
 {
     this.question = question;
@@ -379,6 +380,7 @@ var n = Math.floor(Math.random() * questions.length);
 
 questions[n].displayQuestion();
 
+*/
 
 
 
