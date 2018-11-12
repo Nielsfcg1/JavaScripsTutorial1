@@ -67,10 +67,11 @@ var controller = (function(budgetCtrl, UICtrl){
         init: function(){
             console.log('testing');
             setupEventLiteners();
-
         }
     }
 
     
 
 })(budgetController, UIController);
+
+controller.init();
