@@ -1,5 +1,5 @@
  // Functiuon Constructor
-/*
+
  var john = {
     name: 'John',
     yearOfBirth: 1990,
@@ -8,17 +8,25 @@
 
  // Function constructor starts with a constructor
  // The name of the FC is the name you give as input
+ // Use this instead of creating variables as used above
  var Person = function(name, yearOfBirth, job) 
  {
+    // Attaching the variables to the object
     this.name = name;
     this.yearOfBirth = yearOfBirth;
     this.job = job;
     this.calculateAge;
  }
- 
+    //Set the calculateAge method to the prototype of the Person object to still make it accesible. This is to prevent to have a lot of code in each function constructor of each object. 
+
+    // Person.prototype stands for the inheritance. So setting the function to the prototype of the Person function and not directly in the Person function itself.  
+    // With this you can create functions that are accessible for the objects via inheritance. They will not be attached to the object but will be reachable. So see it as things you can do, as options. For some you want to calculate the age, but not for everyone of everytime you call the function.
+
     Person.prototype.calculateAge = function()
     {console.log(2018-this.yearOfBirth);
     };
+
+    Person.prototype.lastName = 'Smith';
 
  // First an empty object is created by the 'new' operator
  // Than the Person FC is called with the arguments specified
@@ -30,7 +38,9 @@ john.calculateAge();
 jane.calculateAge();
 mark.calculateAge();
 
-*/
+console.log(john.lastName);
+
+
 
 
 // Object.create
@@ -235,7 +245,7 @@ designerQeustion('John');
 
 //////////////////////////////////
 // Lecture: Bind, call and apply
-
+/*
 
 var john = {
     name: 'John',
@@ -304,12 +314,73 @@ var ages = arrayCalc(years, calculateAge);
 var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
 console.log(ages);
 console.log(fullJapan);
+*/
 
 
+////////////////////////////////////////////
+// Coding challenge
+ /*
+var questionOne =
+{   question: 'Question one',
+    Answers: [1,2,3],
+    correctAnswer: 2,
+};
 
+var question = function(q, answer, corrAnswer)
+{
+    //var questionArr = [ 'Question one', 'Question two', 'Question three'];
 
+    if(q === 0)
+    {
+        //questionVar === 0
+    }
+    else if (q ===1)
+    {
+        //questionVar === 1
+    }
+    else if (q === 3)
+    {
+        //QuestionVar === 2
+    }
+    return questionArr[Math.floor(Math.random()*3)];
+}
 
+var test = question(0,0,0);
 
+console.log(test);
+*/
+// Constructor
+/*
+function Question (question, answers, correct)
+{
+    this.question = question;
+    this.answers = answers;
+    this.correct = correct;
+}
+
+Question.prototype.displayQuestion = function()
+{
+    console.log(this.question);
+
+    for(var i = 0; i < this.answers.length; i++)
+    {
+        console.log(i + ':' + this.answers[i]);
+    }
+}
+// Instances of the constructor
+var q1 = new Question('Is Javascript the coolest programming language in the world?', ['Yes', 'No'], 0);
+
+var q2 = new Question('What is the name of this course\'s teacher?', ['John','Michael', 'Jonas'],2);
+
+var q3 = new Question('What does best describe coding?', ['Boring', 'Hard', 'Fun', 'Tedious'], 2);
+
+var questions = [q1, q2, q3];
+
+var n = Math.floor(Math.random() * questions.length);
+
+questions[n].displayQuestion();
+
+*/
 
 
 

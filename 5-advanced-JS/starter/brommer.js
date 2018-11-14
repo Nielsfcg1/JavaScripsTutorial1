@@ -70,21 +70,26 @@ function brommerQuestions(brommer)
     switch(brommer)
     {
         case'derbi':
-            console.log('Is het een Derbi ' + type + '?');
-            break;
+        return function(type)
+        {   console.log('Is het een Derbi ' + type + '?');
+        }
         case 'tomos':
-            console.log('Is het een Tomos ' + type + '?');
-            break;
+        return function(type)
+        {    console.log('Is het een Tomos ' + type + '?');
+        }   
         case 'speedfight':
-            console.log('Is het een speedight ' + type + '?');
-            break;
+        return function(type)
+        {     console.log('Is het een speedight ' + type + '?');
+        }  
         default:
-            console.log('Dat lijkt me geen Derbi, Tomos of Speedfight model');
+        return function(type)
+        {     console.log('Dat lijkt me geen Derbi, Tomos of Speedfight model');
+        }
 
     }
 }
 
-/* var derbiQuestion = brommerQuestions ('derbi');
+var derbiQuestion = brommerQuestions ('derbi');
 var tomosQuestion = brommerQuestions ('tomos');
 var speedfightQuestion = brommerQuestions ('speedfight');
 var cittaQuestion = brommerQuestions('Citta');
@@ -93,6 +98,8 @@ derbiQuestion('Senda');
 tomosQuestion('Quaddro');
 speedfightQuestion('2');
 cittaQuestion();
+brommerQuestions('derbi')('tomos');
+
 */
 
 
