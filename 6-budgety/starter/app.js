@@ -50,7 +50,6 @@ var budgetcontroller = (function()
 
         testing: function()
         {   console.log(data);
-
         }
     }
 
@@ -139,11 +138,11 @@ var controller = (function(budgetCtrl, UICtrl)
     }
 
     var updateBuget = function()
-    {   // 5. calculate the budget
-        // return the budget
-        // 6. display the budget
+    {   // 1. calculate the budget
+        // 2. return the budget
+        // 6. display the budget on the UI
 
-    }
+    };
     
 
     var ctrlAddItem = function()
@@ -163,10 +162,10 @@ var controller = (function(budgetCtrl, UICtrl)
             // 4. clear the fields
             UICtrl.clearFields();
 
-            // 5. Calculate and uppdate budget
+            // 5. Calculate and update budget
             updateBuget();
         }   
-    }
+    };
 
     return {
         init: function()
